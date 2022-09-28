@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+#meuamor {
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    max-width: 40vh;
+    max-height: 40vh;
+    color: rgb(255, 0, 0);
+    opacity: 0;
+    transition: 3s;
+    opacity: 0;
+    transition: 3s;
+}
+
+button {
+    background-color: black;
+    color: red;
+    padding: 4px;
+    border-radius: 5px;
+}

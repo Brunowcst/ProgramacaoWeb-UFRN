@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+div#meuamor {
+    text-align: center;
+    display: none;
+    background-color: rgba(65, 65, 245, 0.623);
+    color: white;
+}
+
+button {
+    background-color: black;
+    color: red;
+    padding: 4px;
+    border-radius: 5px;
+}
