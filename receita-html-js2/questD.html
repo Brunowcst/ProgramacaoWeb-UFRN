@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão A</title>
+    <style>
+
+        #celula {
+            border-collapse: collapse;
+            display: none;
+        }
+
+        #celulas td{
+            text-align: center;
+            background-color: gray;
+            color: black;
+            border: 1px solid black;
+        } 
+    </style>
+</head>
+<body>
+    <div id="meu amor"><button id="botaoCarregar">Carregando cervejas...</button></div> 
+
+    <table id="celulas">
+        <thead>
+            <tr>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+         </table>
+</body>
+
+<script>
+    let cervejas = ["Guiness", "Desperados", "Becks"]
+    function transformar(item){
+       return `<tr><td>${item}</tr> </td>`
+    }
+
+    function carregarDiv(){
+        document.getElementById('celulas').style.display = 'block';
+       let tbody = document.querySelector("#celulas tbody")
+       cervejas.sort();
+       let cervejasHtml = cervejas.map(transformar) 
+       tbody.innerHTML = `${cervejasHtml.join("\n")}`
+
+    }
+    let botao = document.getElementById("botaoCarregar")
+    botao.addEventListener("click", carregarDiv)                 
+ </script>
+</html>
