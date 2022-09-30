@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão D</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        div {
+            margin: auto;
+            text-align: center;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        #tabelaDados {
+            border-collapse: collapse;
+            display: none;
+        }
+
+        td{
+            text-align: center;
+            padding: 7px;
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 251, 251);
+            border: 1px solid rgb(255, 0, 0)
+        } 
+    </style>
+</head>
+<body>
+
+    <div><button id="botaoCarregar">Gerar Dados...</button></div>
+
+    <table id="tabelaDados">
+        <thead>
+          <tr>
+
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+     </table>
+</body>
+<script>
+    //cs é um array de cervejas
+
+    let users = [];
+
+    async function carregarUsuarios(){
+        let res = await fetch("https://random-data-api.com/api/v2/users?size=3")
+        users = await res.json()
+        carregarDiv(users, 'tabelaDados', ['Username', 'Senha'], ['username', 'password'])
+    }
+    
+
+    let botao = document.getElementById("botaoCarregar")
+    botao.addEventListener("click", () => carregarUsuarios())
+
+ </script>
+</html>

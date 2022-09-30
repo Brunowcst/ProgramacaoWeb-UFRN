@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão C</title>
+    <link rel="stylesheet" href="style.css">
+    <script src=""></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        div > button {
+            background-color: rgba(55, 55, 215, 0.71);
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 4px;
+        }
+
+        div#cervejasDiv {
+            background-color: gray;
+            border: 1px solid black;
+            padding: 5px;
+            margin: auto;
+            text-align: center;
+            max-width: 50vw;
+        }
+    </style>
+</head>
+<body>
+    <div><button id="botaoCarregar">Gerar Usuários...</button></div>
+    <div id="cervejasDiv"></div>  
+</body>
+<script>
+    let cervejas = [
+       {
+        name: "Founders Breakfast Stout", 
+        alcohol: "7.6%",
+        style: "European"           
+
+       }, 
+
+       {
+        name: "Celebrator Doppelbock",
+        alcohol: "3.1%",            
+        style: "Ocidental" 
+       }, 
+
+       {
+        name: "Dreadnaught",
+        alcohol: "6.1%",
+        style: "African"            
+       }
+    ]
+
+    let users = [
+        {
+            username: "Bruno.delas",
+            password: "dh4hfjak",
+            email: "bruno.delas@gmail.com"
+        },
+
+        {
+            username: "Fabricio.delas",
+            password: "gajhh2jh",
+            email: "fabricio.dela@gmail.com"
+        },
+
+        {
+            username: "david-delas",
+            password: "hahjahh3",
+            email: "david.delas@gmail.com"
+        }
+
+    ]
+    
+    //cs é um array de cervejas
+    const carregarDiv = cs => {
+       const div = document.getElementById("cervejasDiv")
+       const itensHtml = cs.map( ({username,password,email}) => `<div>${username} | ${password} | ${email}</div>` ) 
+       div.innerHTML = `${itensHtml.join("\n")}`
+    }
+
+    async function carregarUsuarios(){
+        try{
+        let res = await fetch("https://random-data-api.com/api/v2/users?size=3")
+        usuarios = await res.json()
+        carregarDiv(usuarios)
+        }catch(err){
+            document.getElementById("cervejasDiv").innerHTML = "Algo inesperado ocorreu..."
+        }
+    }
+    
+
+    let botao = document.getElementById("botaoCarregar")
+    botao.addEventListener("click", () => carregarUsuarios())
+
+ </script>
+</html>
