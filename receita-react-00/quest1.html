@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 0</title>
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 4px;
+ 
+        }
+        thead {
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+    </div>
+    <script>
+        ReactDOM.render(
+            React.createElement(
+                'table',
+                'tabela',
+                 React.createElement(
+                    'thead',
+                    null,
+                    'Tabela'
+                ),
+                React.createElement(
+                    'tr',
+                    'null',
+                    React.createElement(
+                        'td',
+                        'null',
+                        'Caicó'
+                    ),
+                    React.createElement(
+                        'td',
+                        'null',
+                        '68.343'
+                    ),
+                ),
+                React.createElement(
+                    'tr',
+                    'null',
+                    React.createElement(
+                        'td',
+                        'null',
+                        'Cruzeta'
+                    ),
+                    React.createElement(
+                        'td',
+                        'null',
+                        '7 998'
+                    ),
+                ),
+            ),
+        document.getElementById("app"))
+    </script>
+</body>
+</html>
