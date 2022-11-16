@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 03</title>
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+</head>
+<body>
+   <div id="app">
+   </div>
+   <script type="text/babel">
+
+      const valoresCabecalhos = {cabecalho1: "Nome", cabecalho2: "Marca"}
+
+      const TabelaBebidas = ({titulo,cabecalhos}) => {
+         return (
+            <div>
+               <h1>{titulo}</h1>
+               <table id="tabela" border="1">
+                  <thead>
+                     <tr><th>{cabecalhos.cabecalho1}</th><th>{cabecalhos.cabecalho2}</th></tr>
+                  </thead>
+                  <tbody>
+                     <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                  </tbody>
+               </table>
+            </div>
+         )  
+      }
+
+      ReactDOM.render(
+         <TabelaBebidas titulo="tabela de bebidas" cabecalhos={valoresCabecalhos}/>
+         ,
+         document.getElementById("app"))
+   </script>
+</body>
+</html>
