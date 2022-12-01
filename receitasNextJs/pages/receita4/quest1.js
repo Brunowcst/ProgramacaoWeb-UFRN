@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 
-export default function Movies2(){
+export default function Movies(){
     const {data, error} = useSWR(`http://www.omdbapi.com/?apikey=7e82baf&s=bagdad`, fetcher)
 
     if (error) return <div>falha na requisição...</div>
@@ -8,8 +8,8 @@ export default function Movies2(){
 
     return (
         <div>
-            {data.Search.map((m) => <div>{m.Title} --- {m.Year}</div>)}         
-        </div>
+        { data.Search.map((m) => <div><a key={m.imdbID} href={  m.imdbID}>{m.Title} --- {m.Year}</a></div>)}
+    </div>
     )
 }
 
